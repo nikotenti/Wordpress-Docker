@@ -16,7 +16,7 @@ Dockerfile basato su ubuntu (ultima versione)
 
 
 ### Avviare l'immagine in un nuovo container in background chiamato "wordpress": 
-###### NB: È possibile redirezionare il traffico delle porte utilizzando -p (porta host):(orta container)
+###### NB: È possibile redirezionare il traffico delle porte utilizzando -p (porta host):(porta container)
 ```docker run -tid -p 80:80 -p 3306:3306 --name 'wordpress' wordpress```
 
 
