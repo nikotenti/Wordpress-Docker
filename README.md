@@ -6,7 +6,7 @@ Dockerfile basato su ubuntu (ultima versione)
 
 - Apche2
 - php 7.2
-- MySQL 5.7 / MariaDB 10.4
+- MariaDB 10.4
 
 ## Installazione di Wordpress - phpMyAdmin - MySQL Dockerfile
 
