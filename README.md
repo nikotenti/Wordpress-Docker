@@ -12,7 +12,7 @@ Dockerfile basato su ubuntu (ultima versione)
 
 ### Costruire l'immagine chiamata "wordpress" e imposto le variabili delle password:
 ##### È possibile sostituire il nome dell'immagine cambiando "wordpress" con il nome che si desidera impostare
-###### Modificare il valore 'password' con la password che si desidera impostare
+###### NB: Modificare il valore 'password' con la password che si desidera impostare
 ```docker build -t wordpress . --build-arg root_password=password --build-arg wp_password=password```
 
 
