@@ -13,6 +13,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo curl systemd apache2 
 # Creo directory volume
 RUN mkdir /wordpress_data
 
+# Imposto variabili password
+ARG root_password
+ARG wp_password
+
 # Configuro Apache2
 RUN a2enmod rewrite
 RUN chown -R www-data:www-data /var/www
@@ -57,9 +61,9 @@ RUN \
 service mysql start && \
 sed -i 's/bind-address/#bind-address/g' /etc/mysql/mysql.conf.d/mysqld.cnf && \
 mysql -u root -h localhost -e "CREATE DATABASE wordpress_db;" && \
-mysql -u root -h localhost -e "CREATE USER 'wp_user'@'%' IDENTIFIED BY 'password';" && \
+mysql -u root -h localhost -e "CREATE USER 'wp_user'@'%' IDENTIFIED BY '${wp_password}';" && \
 mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wp_user'@'%';" && \
-mysql -u root -h localhost -e "CREATE USER 'root'@'%' IDENTIFIED BY 'password';" && \
+mysql -u root -h localhost -e "CREATE USER 'root'@'%' IDENTIFIED BY '${root_password}';" && \
 mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';" && \
 mysql -u root -h localhost -e "FLUSH PRIVILEGES;"  && \
 usermod -d /var/lib/mysql/ mysql
