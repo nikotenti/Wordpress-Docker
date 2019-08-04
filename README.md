@@ -57,14 +57,8 @@ http://localhost:8080/
 
 ## Credenziali di accesso al Database:
 
-#### Utente Root:
+#### Utenti:
 
 DB_ROOT_USER = root
 
-DB_ROOT_PASS = password
-
-#### Utente wp_user:
-
 DB_USER = wp_user
- 
-DB_PASS = password
