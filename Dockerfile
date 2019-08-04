@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get -y upgrade
     
 # Installo le dipendenze
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo curl systemd apache2 apache2-utils mysql-server php libapache2-mod-php php-mysql php-curl php-gd php-xml php-mbstring  php-xmlrpc php-zip php-soap php-intl phpmyadmin
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo curl systemd apache2 apache2-utils mariadb-server php libapache2-mod-php php-mysql php-curl php-gd php-xml php-mbstring  php-xmlrpc php-zip php-soap php-intl phpmyadmin
 
 # Creo directory volume
 RUN mkdir /wordpress_data
@@ -59,7 +59,6 @@ mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 # Creo il database, le credenziali di accesso "root" e "wp_user" con privilegi massimi
 RUN \
 service mysql start && \
-sed -i 's/bind-address/#bind-address/g' /etc/mysql/mysql.conf.d/mysqld.cnf && \
 mysql -u root -h localhost -e "CREATE DATABASE wordpress_db;" && \
 mysql -u root -h localhost -e "CREATE USER 'wp_user'@'%' IDENTIFIED BY '${wp_password}';" && \
 mysql -u root -h localhost -e "GRANT ALL PRIVILEGES ON wordpress_db.* TO 'wp_user'@'%';" && \
@@ -73,9 +72,8 @@ RUN \
 sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf && \
 sudo a2enconf phpmyadmin.conf
 
-# Riavvio MySQL per rendere attiva la configurazione impostata
-RUN \
-service mysql restart
+# Imposto l'accesso al database da remoto
+RUN sed -i "$ a skip-grant-tables" /etc/mysql/mariadb.cnf
 
 # Aggiungo uno script che consente l'esecuzione automatica dei servizi all'avvio del container
 ADD servicestart.sh /start.sh
