@@ -1,0 +1,88 @@
+_______________________________________________________________
+        __          _______   _____
+        \ \        / /  __ \ / ____|
+         \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+          \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+           \  /\  /  | |     ____) | (__| (_| | | | |
+            \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+        WordPress Security Scanner by the WPScan Team
+                       Version 3.6.1
+          Sponsored by Sucuri - https://sucuri.net
+_______________________________________________________________
+
+[+] URL: http://172.17.0.2/
+[+] Started: Sun Aug  4 10:36:20 2019
+
+Interesting Finding(s):
+
+[+] http://172.17.0.2/
+ | Interesting Entry: Server: Apache/2.4.29 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] http://172.17.0.2/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access
+
+[+] http://172.17.0.2/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://172.17.0.2/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] http://172.17.0.2/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 5.2.2 identified (Latest, released on 2019-06-18).
+ | Detected By: Rss Generator (Passive Detection)
+ |  - http://172.17.0.2/index.php/feed/, <generator>https://wordpress.org/?v=5.2.2</generator>
+ |  - http://172.17.0.2/index.php/comments/feed/, <generator>https://wordpress.org/?v=5.2.2</generator>
+
+[+] WordPress theme in use: twentynineteen
+ | Location: http://172.17.0.2/wp-content/themes/twentynineteen/
+ | Latest Version: 1.4 (up to date)
+ | Last Updated: 2019-05-07T00:00:00.000Z
+ | Readme: http://172.17.0.2/wp-content/themes/twentynineteen/readme.txt
+ | Style URL: http://172.17.0.2/wp-content/themes/twentynineteen/style.css?ver=1.4
+ | Style Name: Twenty Nineteen
+ | Style URI: https://wordpress.org/themes/twentynineteen/
+ | Description: Our 2019 default theme is designed to show off the power of the block editor. It features custom sty...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Detected By: Css Style (Passive Detection)
+ |
+ | Version: 1.4 (80% confidence)
+ | Detected By: Style (Passive Detection)
+ |  - http://172.17.0.2/wp-content/themes/twentynineteen/style.css?ver=1.4, Match: 'Version: 1.4'
+
+[+] Enumerating All Plugins (via Passive Methods)
+
+[i] No plugins Found.
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:00 <===================================================================================================================> (21 / 21) 100.00% Time: 00:00:00
+
+[i] No Config Backups Found.
+
+
+[+] Finished: Sun Aug  4 10:36:24 2019
+[+] Requests Done: 49
+[+] Cached Requests: 5
+[+] Data Sent: 8.993 KB
+[+] Data Received: 461.855 KB
+[+] Memory used: 180.148 MB
+[+] Elapsed time: 00:00:03
