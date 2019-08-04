@@ -10,9 +10,10 @@ Dockerfile basato su ubuntu (ultima versione)
 
 ## Installazione di Wordpress - phpMyAdmin - MySQL Dockerfile
 
-### Costruire l'immagine chiamata "wordpress":
-###### È possibile sostituire il nome dell'immagine cambiando "wordpress" con il nome che si desidera impostare
-```docker build -t wordpress .```
+### Costruire l'immagine chiamata "wordpress" e imposto le variabili delle password:
+##### È possibile sostituire il nome dell'immagine cambiando "wordpress" con il nome che si desidera impostare
+###### Modificare il valore 'password' con la password che si desidera impostare
+```docker build -t wordpress . --build-arg root_password=password --build-arg wp_password=password```
 
 
 ### Avviare l'immagine in un nuovo container in background chiamato "wordpress": 
