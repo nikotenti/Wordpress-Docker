@@ -65,5 +65,5 @@ DB_ROOT_PASS = password
 #### Utente wp_user:
 
 DB_USER = wp_user
-
+ 
 DB_PASS = password
