@@ -29,11 +29,11 @@ Dockerfile basato su ubuntu (ultima versione)
 
 #### Wordpress
 
-http://localhost/
+http://ip-locale/
 
 #### phpMyAdmin
 
-http://localhost/phpmyadmin
+http://ip-locale/phpmyadmin
 
 
 ## Installazione di Wordpress - phpMyAdmin - MariaDB docker-compose
@@ -47,11 +47,11 @@ http://localhost/phpmyadmin
 
 #### Wordpress
 
-http://localhost/
+http://ip-locale/
 
 #### phpMyAdmin
 
-http://localhost:8080/
+http://ip-locale:8080/
 
 
 
