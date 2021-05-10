@@ -1,63 +1,53 @@
 # Wordpress-Docker
 
-Dockerfile basato su ubuntu (ultima versione)
+Dockerfile based on ubuntu (latest version)
 
-### Dipendenze
+### Dependences
 
 - Apche2
 - php 7.2
 - MariaDB 10.4
 
-## Installazione di Wordpress - phpMyAdmin - MySQL Dockerfile
+## Wordpress Installation - phpMyAdmin - MySQL Dockerfile
 
-### Costruire l'immagine chiamata "wordpress" e imposto le variabili delle password:
-##### È possibile sostituire il nome dell'immagine cambiando "wordpress" con il nome che si desidera impostare
-###### NB: Modificare il valore 'password' con la password che si desidera impostare
+### Build the image called "wordpress" and set the password variables:
+##### You can replace the image name by changing "wordpress" with the name you want to set
+###### ATTENTION: Change the 'password' value to the password you want to set
 ```docker build -t wordpress . --build-arg root_password=password --build-arg wp_password=password --build-arg phpmyadmin_pass=password```
 
 
-### Avviare l'immagine in un nuovo container in background chiamato "wordpress": 
-###### NB: È possibile redirezionare il traffico delle porte utilizzando -p (porta host):(porta container)
+### Run the image in a new container in the background called "wordpress": 
+###### ATTENTION: You can redirect port traffic using -p (host port) :( container port)
 ```docker run -tid -p 80:80 -p 3306:3306 --name 'wordpress' wordpress```
 
 
-### Interagire con la bash del container "wordpress":
-###### Crea una shell connessa al container wordpress
+### Interacting with the "wordpress" container bash:
+###### Create a shell connected to the wordpress container
 ```docker exec -ti wordpress bash```
 
-### Accesso a Wordpress - phpMyAdmin
 
-#### Wordpress
+## Wordpress installation - phpMyAdmin - MariaDB docker-compose
 
-http://ip-locale/
-
-#### phpMyAdmin
-
-http://ip-locale/phpmyadmin
-
-
-## Installazione di Wordpress - phpMyAdmin - MariaDB docker-compose
-
-### Costruire e avviare l'immagine in un nuovo container in background:
+### Build and launch the image in a new container in the background:
 
 ```docker-compose up -d```
 
  
-### Accesso a Wordpress - phpMyAdmin
+### Access to Wordpress - phpMyAdmin
 
 #### Wordpress
 
-http://ip-locale/
+http://local-ip/
 
 #### phpMyAdmin
 
-http://ip-locale:8080/
+http://local-ip:8080/
 
 
 
-## Credenziali di accesso al Database:
+## Database access credentials:
 
-#### Utenti:
+#### User:
 
 DB_ROOT_USER = root
 
